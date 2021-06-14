@@ -1,0 +1,26 @@
+version: '3'
+services:
+
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - mongo-service-net
+    restart: unless-stopped
+
+  demomongo-service:
+    image: rom/mongodemo-service
+    depends_on:
+      - mongodb
+    ports:
+      - "8080:8080"
+    networks:
+      - mongo-service-net
+    environment:
+      APP_MONGODB_URI: mongodb
+
+
+networks:
+  mongo-service-net:
+    driver: "bridge"
