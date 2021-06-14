@@ -3,6 +3,7 @@ package com.example.demomongo.entity;
 
 import org.springframework.data.annotation.Id;
 
+// todo use lombock
 public class User {
 
     @Id

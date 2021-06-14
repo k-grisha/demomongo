@@ -5,7 +5,6 @@ import com.example.demomongo.repository.UserRepository;
 import java.util.Random;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +17,7 @@ public class UsersController {
     @Autowired
     UserRepository userRepository;
 
+    // todo change to POST
     @GetMapping("/user/create/{name}")
     public String createUser(@PathVariable String name) {
         User user = new User();
